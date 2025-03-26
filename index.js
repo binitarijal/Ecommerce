@@ -23,7 +23,8 @@ app.get("/",(req,res)=>{
         message:"server is running"
     })
 })
-connectDb();
-app.listen(PORT,()=>{
-    console.log("server is running", PORT)
-})
+connectDb().then(()=>{ //first connects and starts server
+    app.listen(PORT,()=>{
+        console.log("server is running", PORT)
+    })
+});
